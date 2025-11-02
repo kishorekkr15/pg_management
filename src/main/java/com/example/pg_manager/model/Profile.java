@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "profile")
 @Getter
@@ -19,6 +21,7 @@ public class Profile {
     private String state;
     private String pincode;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "login_id", referencedColumnName = "id")
     private Login login;

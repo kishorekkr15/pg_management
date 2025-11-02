@@ -2,6 +2,7 @@ package com.example.pg_manager.controller;
 
 import com.example.pg_manager.model.Login;
 import com.example.pg_manager.service.LoginService;
+import com.example.pg_manager.dto.LoginDTO;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -40,8 +41,8 @@ public class LoginController {
     //   "isDeleted": false
     // }
     @PostMapping
-    public Login createLogin(@RequestBody Login login) {
-        return loginService.saveLogin(login);
+    public LoginDTO createLogin(@RequestBody LoginDTO LoginDTO) {
+        return loginService.saveLogin(LoginDTO);
     }
 
     // ✅ PUT (update) login → http://localhost:8080/login/1

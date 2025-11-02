@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.CascadeType;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 
 import lombok.Getter;
@@ -42,6 +42,7 @@ public class Login implements Serializable {
     private boolean isActive = true;
     private boolean isDeleted = false;
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
     private Profile profile;
 
